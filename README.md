@@ -63,26 +63,26 @@ s3cmd --config s3cfg-minio mb s3://localhost
 
 *NB i couldn't get secor to work with minio yet*
 
-## [secor]
+## [secor](https://github.com/pinterest/secor)
 
 secor reads kafka and stores gzipped files in s3.
 
 compile and install
 
-```
+```bash
 (git clone https://github.com/pinterest/secor.git ~/secor; cd ~/secor; mvn package)
 ```
 
 run:
 
-```console
+```bash
 mkdir ./backup
 ./secor.sh
 ```
 
 wait and try:
 
-```
+```bash
 s3cmd --config s3cfg-minio ls -r s3://localhost/secor
 ```
 
