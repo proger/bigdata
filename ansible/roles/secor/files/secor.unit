@@ -1,0 +1,8 @@
+[Unit]
+Description=secor
+
+[Service]
+ExecStart=/opt/secor/run-secor
+
+[Install]
+WantedBy=multi-user.target
