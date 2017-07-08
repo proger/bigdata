@@ -17,6 +17,8 @@ kafka-topics --create --topic json \
   --replication-factor 1 \
   --zookeeper localhost:2181
 
+# try also:  retention.ms
+
 kafkacat -P -b localhost -t json < ~/dmd-interesting.json
 
 # if not using -o beginning, it seems that kafka/zk is storing your last read offset
@@ -61,13 +63,12 @@ in any case you also should create a bucket manually:
 s3cmd --config s3cfg-minio mb s3://localhost
 ```
 
-*NB i couldn't get secor to work with minio yet*
 
 ## [secor](https://github.com/pinterest/secor)
 
 secor reads kafka and stores gzipped files in s3.
 
-compile and install
+compile and install (use my branch if [secor#351](https://github.com/pinterest/secor/pull/351) is not merged by then)
 
 ```bash
 (git clone https://github.com/pinterest/secor.git ~/secor; cd ~/secor; mvn package)
