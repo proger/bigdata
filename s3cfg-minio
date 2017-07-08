@@ -1,0 +1,10 @@
+host_base = localhost:5000
+host_bucket = localhost
+bucket_location = us-east-1
+use_https = False
+
+access_key = minio
+secret_key = miniostorage
+
+signature_v2 = True
+
