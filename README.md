@@ -29,7 +29,7 @@ kafkacat -C -b localhost -t json -o beginning
 demo:
 
 ```console
-~% kafkacat -L -b localhost -t json
+% kafkacat -L -b localhost -t json
 Metadata for json (from broker -1: localhost:9092/bootstrap):
  1 brokers:
   broker 0 at 192.168.1.60:9092
@@ -68,7 +68,7 @@ s3cmd --config s3cfg-minio mb s3://localhost
 
 secor reads kafka and stores gzipped files in s3.
 
-compile and install (use my branch if [secor#351](https://github.com/pinterest/secor/pull/351) is not merged by then)
+compile and install (use [my fork](https://github.com/proger/secor) if [secor#351](https://github.com/pinterest/secor/pull/351) is not merged by then)
 
 ```bash
 (git clone https://github.com/pinterest/secor.git ~/secor; cd ~/secor; mvn package)
