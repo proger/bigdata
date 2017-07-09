@@ -2,14 +2,15 @@
 
 set -x
 
-SECOR=/opt/secor
+SECOR=${SECOR:-/opt/secor}
+JAVA=${JAVA:-/usr/local/java/bin/java}
 
 # ProgressMonitorMain
 # LogFilePrinterMain
 CLASS_NAME=com.pinterest.secor.main.${1:-ConsumerMain}
 shift
 
-exec java -ea \
+exec "$JAVA" -ea \
      -Dsecor_group=secor0 \
      -Dlog4j.configuration=file://"$SECOR"/log4j.prod.properties \
      -Dconfig=file://"$SECOR"/secor.properties \

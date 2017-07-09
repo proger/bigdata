@@ -1,11 +1,27 @@
 - copy: src=secor dest=/opt
-- copy: src=secor.properties dest=/opt
-- copy: src=run-secor dest=/opt
-- copy: src=log4j.prod.properties dest=/opt
-- copy: src=secor.unit dest=/etc/systemd/system
+  become: True
+  become_user: root
+
+- copy: src=secor.properties dest=/opt/secor
+  become: True
+  become_user: root
+
+- copy: src=run-secor dest=/opt/secor
+  become: True
+  become_user: root
+
+- copy: src=log4j.prod.properties dest=/opt/secor
+  become: True
+  become_user: root
+
+- copy: src=secor.unit dest=/etc/systemd/system/secor.service
+  become: True
+  become_user: root
 
 - name: ensure directories
   file: path={{item}} state=directory
   with_items:
     - /opt/secor
     - /opt/secor/backup
+  become: True
+  become_user: root

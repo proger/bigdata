@@ -1,6 +1,9 @@
 deploy:
 
 ```
+mkdir -p roles/secor/files/secor
+cp -R ~/secor/target/{*.jar,lib} roles/secor/files/secor/
+ansible-galaxy install andrewrothstein.kafka -p roles
 ansible-playbook -u root -i hostname, playbook.yml
 ```
 
