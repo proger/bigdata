@@ -87,8 +87,6 @@ wait and try:
 s3cmd --config s3cfg-minio ls -r s3://localhost/secor
 ```
 
-*NB i don't understand why secor doens't apply hr= partitioning where it should*
-
 ## query
 
 - just use, say, python+s3fs: see query.ipynb
