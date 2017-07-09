@@ -7,9 +7,12 @@ ansible-galaxy install andrewrothstein.kafka -p roles
 ansible-playbook -u root -i hostname, playbook.yml
 ```
 
-on the server:
+on the server as root:
 
 ```
+source /etc/profile.d/java-oracle.sh
+source /etc/profile.d/kafka.sh
+
 env KAFKA_HEAP_OPTS="-Xmx128M -Xms128M" zookeeper-server-start.sh -daemon /usr/local/kafka/config/zookeeper.properties
 
 env KAFKA_HEAP_OPTS="-Xmx512G -Xms512M" kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties
